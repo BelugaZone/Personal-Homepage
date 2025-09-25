@@ -181,47 +181,47 @@
                     </div>
                 </div>
                 
-                <!-- Skills Section -->
+                <!-- Skills Section - 移除两列上方的标题 -->
                 <div class="mt-20">
                     <h2 class="text-2xl font-bold mb-6 text-center">专业技能</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                            <h3 class="font-semibold mb-3 text-primary flex items-center gap-2">
-                                <i class="fa fa-code"></i> 编程语言与工具
-                            </h3>
-                            <ul class="space-y-2 text-gray-700">
-                                <li class="flex items-start gap-2">
-                                    <i class="fa fa-check-circle text-primary mt-1"></i>
-                                    <span>计算机语言：Python，C#，JavaScript</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <i class="fa fa-check-circle text-primary mt-1"></i>
-                                    <span>熟悉Stable Diffusion，DiT主流扩散生成模型架构</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <i class="fa fa-check-circle text-primary mt-1"></i>
-                                    <span>能够熟练进行本地模型Lora微调以及创新架构设计</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                            <h3 class="font-semibold mb-3 text-primary flex items-center gap-2">
-                                <i class="fa fa-wrench"></i> 专业工具与技术
-                            </h3>
-                            <ul class="space-y-2 text-gray-700">
-                                <li class="flex items-start gap-2">
-                                    <i class="fa fa-check-circle text-primary mt-1"></i>
-                                    <span>熟练使用可灵，Pika，Luma，Liblib等在线AIGC工具</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <i class="fa fa-check-circle text-primary mt-1"></i>
-                                    <span>熟练使用ComfyUI进行本地AIGC工作流的搭建及自定义节点设计</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <i class="fa fa-check-circle text-primary mt-1"></i>
-                                    <span>熟悉Vue+Springboot前后端框架及Shiro权限管理系统</span>
-                                </li>
-                            </ul>
+                    <!-- 单列容器，内部使用flex实现左右布局 -->
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <div class="flex flex-col md:flex-row gap-8">
+                            <!-- 左侧列 - 移除标题 -->
+                            <div class="md:w-1/2">
+                                <ul class="space-y-2 text-gray-700">
+                                    <li class="flex items-start gap-2">
+                                        <i class="fa fa-check-circle text-primary mt-1"></i>
+                                        <span>计算机语言：Python，C#，JavaScript</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fa fa-check-circle text-primary mt-1"></i>
+                                        <span>熟悉Stable Diffusion，DiT主流扩散生成模型架构</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fa fa-check-circle text-primary mt-1"></i>
+                                        <span>能够熟练进行本地模型Lora微调以及创新架构设计</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <!-- 右侧列 - 移除标题 -->
+                            <div class="md:w-1/2">
+                                <ul class="space-y-2 text-gray-700">
+                                    <li class="flex items-start gap-2">
+                                        <i class="fa fa-check-circle text-primary mt-1"></i>
+                                        <span>熟练使用可灵，Pika，Luma，Liblib等在线AIGC工具</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fa fa-check-circle text-primary mt-1"></i>
+                                        <span>熟练使用ComfyUI进行本地AIGC工作流的搭建及自定义节点设计</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fa fa-check-circle text-primary mt-1"></i>
+                                        <span>熟悉Vue+Springboot前后端框架及Shiro权限管理系统</span>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -293,7 +293,6 @@
                 <div class="flex flex-col gap-12 mx-auto px-4 sm:px-6">
                     <div class="timeline-item">
                         <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow overflow-hidden border-l-4 border-primary internship-slider" data-slides="3">
-                            <!-- 添加图片滑动区域 -->
                             <div class="relative slider-container">
                                 <div class="image-slider">
                                     <div class="image-slide">
@@ -307,7 +306,6 @@
                                     </div>
                                 </div>
                                 
-                                <!-- 滚动控制按钮 -->
                                 <button class="slider-btn absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 text-white w-12 h-12 rounded-full flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity prev-btn">
                                     <i class="fa fa-chevron-left text-xl"></i>
                                 </button>
@@ -315,7 +313,6 @@
                                     <i class="fa fa-chevron-right text-xl"></i>
                                 </button>
                                 
-                                <!-- 图片指示器 -->
                                 <div class="absolute bottom-6 left-0 right-0 flex justify-center gap-3">
                                     <button class="w-4 h-4 rounded-full bg-white opacity-100 dot-btn active" data-index="0"></button>
                                     <button class="w-4 h-4 rounded-full bg-white opacity-50 dot-btn" data-index="1"></button>
@@ -323,14 +320,13 @@
                                 </div>
                             </div>
                             
-                            <div class="p-8">
+                            <div class="p-8 max-w-5xl mx-auto">
                                 <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
                                     <h3 class="text-xl font-semibold">生成式算法工程师</h3>
                                     <span class="text-sm font-medium text-primary bg-primary/10 px-3 py-1 rounded-full mt-2 sm:mt-0">2025.06 - 2025.09</span>
                                 </div>
                                 <h4 class="text-lg text-neutral font-medium mb-3">Nullmax 纽劢科技</h4>
                                 
-                                <!-- 文字内容区域，与图片对应 -->
                                 <div class="internship-content mb-4">
                                     <div class="internship-text" data-index="0">
                                         <ul class="text-gray-700 space-y-3">
