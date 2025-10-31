@@ -74,6 +74,30 @@
                 cursor: pointer;
                 user-select: none;
             }
+            .detail-btn {
+                position: relative;
+                overflow: hidden;
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            .detail-btn::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+                transition: left 0.5s;
+            }
+            .detail-btn:hover::before {
+                left: 100%;
+            }
+            .detail-btn:hover {
+                box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            }
+            .detail-btn:active {
+                transform: translateY(-1px) scale(0.98);
+            }
         }
     </style>
 </head>
@@ -97,7 +121,7 @@
                     <a href="#projects" class="text-neutral hover:text-primary transition-colors">项目经历</a>
                     <a href="#research" class="text-neutral hover:text-primary transition-colors">科研经历</a>
                     <a href="#contact" class="text-neutral hover:text-primary transition-colors">联系方式</a>
-                    <a href="https://github.com" target="_blank" class="bg-primary text-white px-4 py-2 rounded-md hover:bg-primary/90 transition-colors flex items-center gap-1">
+                    <a href="https://github.com/BelugaZone" target="_blank" class="bg-primary text-white px-4 py-2 rounded-md hover:bg-primary/90 transition-colors flex items-center gap-1">
                         <i class="fa fa-github"></i> GitHub
                     </a>
                 </div>
@@ -119,7 +143,7 @@
                     <a href="#projects" class="text-neutral hover:text-primary transition-colors">项目经历</a>
                     <a href="#research" class="text-neutral hover:text-primary transition-colors">科研经历</a>
                     <a href="#contact" class="text-neutral hover:text-primary transition-colors">联系方式</a>
-                    <a href="https://github.com" target="_blank" class="bg-primary text-white px-4 py-2 rounded-md hover:bg-primary/90 transition-colors flex items-center justify-center gap-1 w-full">
+                    <a href="https://github.com/BelugaZone" target="_blank" class="bg-primary text-white px-4 py-2 rounded-md hover:bg-primary/90 transition-colors flex items-center justify-center gap-1 w-full">
                         <i class="fa fa-github"></i> GitHub
                     </a>
                 </div>
@@ -174,7 +198,7 @@
                             <a href="#projects" class="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-primary border border-primary rounded-md hover:bg-primary/5 transition-all shadow-sm hover:shadow">
                                 <i class="fa fa-cogs"></i> 项目经历
                             </a>
-                            <a href="https://github.com" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 bg-gray-800 text-white rounded-md hover:bg-gray-700 transition-all shadow-md hover:shadow-lg">
+                            <a href="https://github.com/BelugaZone" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 bg-gray-800 text-white rounded-md hover:bg-gray-700 transition-all shadow-md hover:shadow-lg">
                                 <i class="fa fa-github"></i> GitHub
                             </a>
                         </div>
@@ -354,12 +378,31 @@
                                     </div>
                                 </div>
                                 
-                                <div class="flex flex-wrap gap-2">
+                                <div class="flex flex-wrap gap-2 mb-6">
                                     <span class="text-xs bg-gray-100 text-gray-800 px-2 py-1 rounded">Stable Diffusion</span>
                                     <span class="text-xs bg-gray-100 text-gray-800 px-2 py-1 rounded">DiT</span>
                                     <span class="text-xs bg-gray-100 text-gray-800 px-2 py-1 rounded">自动驾驶</span>
                                     <span class="text-xs bg-gray-100 text-gray-800 px-2 py-1 rounded">BEV</span>
                                     <span class="text-xs bg-gray-100 text-gray-800 px-2 py-1 rounded">3D重建</span>
+                                </div>
+                                
+                                <!-- 详情按钮 -->
+                                <div class="flex flex-wrap gap-3">
+                                    <a href="jointdiff-detail.html" class="detail-btn inline-flex items-center gap-2 px-5 py-3 bg-gradient-to-r from-primary to-blue-600 text-white rounded-lg hover:from-primary/90 hover:to-blue-700 transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1 hover:scale-105">
+                                        <i class="fa fa-eye transition-transform duration-300 group-hover:rotate-12"></i> 
+                                        <span class="font-medium">JointDiff详情</span>
+                                        <i class="fa fa-arrow-right ml-1 transition-transform duration-300 group-hover:translate-x-1"></i>
+                                    </a>
+                                    <a href="ace-detail.html" class="detail-btn inline-flex items-center gap-2 px-5 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1 hover:scale-105">
+                                        <i class="fa fa-image transition-transform duration-300 group-hover:rotate-12"></i> 
+                                        <span class="font-medium">ACE++详情</span>
+                                        <i class="fa fa-arrow-right ml-1 transition-transform duration-300 group-hover:translate-x-1"></i>
+                                    </a>
+                                    <a href="3dgs-detail.html" class="detail-btn inline-flex items-center gap-2 px-5 py-3 bg-gradient-to-r from-green-600 to-teal-600 text-white rounded-lg hover:from-green-700 hover:to-teal-700 transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1 hover:scale-105">
+                                        <i class="fa fa-cube transition-transform duration-300 group-hover:rotate-12"></i> 
+                                        <span class="font-medium">3D重建详情</span>
+                                        <i class="fa fa-arrow-right ml-1 transition-transform duration-300 group-hover:translate-x-1"></i>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -409,7 +452,7 @@
                         <div class="p-8 max-w-5xl mx-auto">
                             <div class="flex justify-between items-start mb-4">
                                 <h3 class="text-2xl font-semibold">基于生成式人工智能的AI数字人赋能教学平台</h3>
-                                <a href="https://github.com" target="_blank" class="text-primary hover:text-primary/80">
+                                <a href="https://github.com/BelugaZone" target="_blank" class="text-primary hover:text-primary/80">
                                     <i class="fa fa-github text-xl"></i>
                                 </a>
                             </div>
@@ -482,7 +525,7 @@
                         <div class="p-8 max-w-5xl mx-auto">
                             <div class="flex justify-between items-start mb-4">
                                 <h3 class="text-2xl font-semibold">数字孪生智能装卸平台</h3>
-                                <a href="https://github.com" target="_blank" class="text-primary hover:text-primary/80">
+                                <a href="https://github.com/BelugaZone" target="_blank" class="text-primary hover:text-primary/80">
                                     <i class="fa fa-github text-xl"></i>
                                 </a>
                             </div>
@@ -626,7 +669,7 @@
                     </div>
                     
                     <div class="flex justify-center gap-6">
-                        <a href="https://github.com" target="_blank" class="w-12 h-12 bg-gray-800 text-white rounded-full flex items-center justify-center hover:bg-gray-700 transition-colors" title="GitHub">
+                        <a href="https://github.com/BelugaZone" target="_blank" class="w-12 h-12 bg-gray-800 text-white rounded-full flex items-center justify-center hover:bg-gray-700 transition-colors" title="GitHub">
                             <i class="fa fa-github text-xl"></i>
                         </a>
                         <a href="https://linkedin.com" target="_blank" class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors" title="LinkedIn">

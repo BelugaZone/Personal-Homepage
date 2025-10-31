@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JointDiff项目详情 - 胡文健</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        neutral: '#6b7280'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .slide-in-left {
+            animation: slideInLeft 0.8s ease-out;
+        }
+        .slide-in-right {
+            animation: slideInRight 0.8s ease-out;
+        }
+        .fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .image-gallery {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .gallery-slide {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        .gallery-slide.active {
+            display: block;
+        }
+        
+        .gallery-nav {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .gallery-dots {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .gallery-counter {
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-dot.active {
+            background: white;
+            transform: scale(1.2);
+        }
+
+        /* 图片滑动导航按钮样式 */
+        .gallery-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallery-nav-btn:hover {
+            background: rgba(0, 0, 0, 0.8);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .gallery-prev {
+            left: 10px;
+        }
+
+        .gallery-next {
+            right: 10px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-xl font-bold text-primary hover:text-primary/80 transition-colors">
+                        <i class="fa fa-arrow-left mr-2"></i>返回主页
+                    </a>
+                </div>
+                <div class="text-lg font-semibold text-gray-800">JointDiff项目详情</div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="py-16 bg-gradient-to-br from-blue-50 to-indigo-100">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center fade-in">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                    JointDiff: 联合生成扩散模型
+                </h1>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+                    基于Stable Diffusion的双流生成架构，结合创新的几何先验注意力交互机制，联合建模前视图像和鸟瞰图（BEV）分割的双模态数据
+                </p>
+                <div class="flex flex-wrap justify-center gap-3">
+                    <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">Stable Diffusion</span>
+                    <span class="px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-medium">自动驾驶</span>
+                    <span class="px-4 py-2 bg-purple-100 text-purple-800 rounded-full text-sm font-medium">BEV感知</span>
+                    <span class="px-4 py-2 bg-orange-100 text-orange-800 rounded-full text-sm font-medium">WACV 2026</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="py-16">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section 1: 项目概述 -->
+            <div class="mb-20">
+                <div class="flex gap-8 items-start">
+                    <div class="w-[30%] slide-in-left">
+                        <h2 class="text-3xl font-bold text-gray-900 mb-6">背景与动机</h2>
+                        <div class="space-y-4 text-gray-700 text-lg leading-relaxed">
+                            <p>
+                                自动驾驶感知任务中，通过摄像机图像建图bev语义图是一项核心工作，然而依赖大量的精确标注数据，为了减少标注成本，同时提高模型的泛化能力，利用生成模型进行数据扩充。
+                            </p>
+                            <p>
+                                传统图像生成方法，通过给定bev和文本描述，生成对应的前视图像。而联合生成方法，目标是通过给定文本描述，同时生成前视图像和对应的bev语义图。
+                            </p>
+                            <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500">
+                                <p class="font-semibold text-blue-800">核心痛点：</p>
+                                <ul class="mt-2 space-y-1 text-blue-700">
+                                    <li>• 传统条件生成模型依赖像素级对应</li>
+                                    <li>• 传统条件生成模型无法联合生成</li>
+                                    <li>• 现有联合生成模型不针对自动驾驶场景，且依赖像素级对应</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-[70%] slide-in-right">
+                        <div class="image-gallery">
+                            <div class="gallery-slide active">
+                                <img src="assert/sub_image/paper01.png" alt="JointDiff架构概览" class="w-full h-auto object-cover">
+                            </div>
+                            <div class="gallery-slide">
+                                <img src="assert/sub_image/paper02.png" alt="多模态融合机制" class="w-full h-auto object-cover">
+                            </div>
+                            <div class="gallery-slide">
+                                <img src="assert/sub_image/paper03.png" alt="扩散模型原理" class="w-full h-auto object-cover">
+                            </div>
+                            <div class="gallery-slide">
+                                <img src="assert/sub_image/paper04.png" alt="联合训练流程" class="w-full h-auto object-cover">
+                            </div>
+                            <div class="gallery-nav">
+                                <div class="gallery-counter">1 / 5</div>
+                                <div class="gallery-dots">
+                                    <div class="nav-dot active" data-slide="0"></div>
+                                    <div class="nav-dot" data-slide="1"></div>
+                                    <div class="nav-dot" data-slide="2"></div>
+                                    <div class="nav-dot" data-slide="3"></div>
+                                    <div class="nav-dot" data-slide="4"></div>
+                                </div>
+                            </div>
+                            <!-- 添加左右箭头按钮 -->
+                            <button class="gallery-nav-btn gallery-prev" onclick="changeSlide(this.closest('.image-gallery'), -1)">‹</button>
+                            <button class="gallery-nav-btn gallery-next" onclick="changeSlide(this.closest('.image-gallery'), 1)">›</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2: 技术架构 -->
+            <div class="mb-20">
+                <div class="flex gap-8 items-start">
+                    <div class="w-[30%] slide-in-left">
+                        <h2 class="text-3xl font-bold text-gray-900 mb-6">Jointdiff技术架构</h2>
+                        <div class="space-y-4 text-gray-700 text-lg leading-relaxed">
+                            <p>
+                                模型基于Stable Diffusion架构进行改进，采用双流设计分别处理前视图像和BEV分割数据。通过基于几何先验的跨视角联合注意力进行交互。一次训练，实现三种任务。
+                            </p>
+                            <div class="bg-gray-50 p-6 rounded-lg">
+                                <h3 class="font-semibold text-gray-900 mb-3">关键技术组件：</h3>
+                                <div class="grid grid-cols-1 gap-3">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                                        <span>跨空间联合注意力模块</span>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                                        <span>辅助分割模块</span>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-3 h-3 bg-purple-500 rounded-full"></div>
+                                        <span>多任务时间步调度</span>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-3 h-3 bg-orange-500 rounded-full"></div>
+                                        <span>三种任务无缝泛化</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-[70%] slide-in-right">
+                        <div class="image-gallery">
+                            <div class="gallery-slide active">
+                                <img src="assert/sub_image/paper06.png" alt="JointDiff双流架构" class="w-full h-auto object-cover">
+                            </div>
+                            <div class="gallery-slide">
+                                <img src="assert/sub_image/paper07.png" alt="几何先验注意力机制" class="w-full h-auto object-cover">
+                            </div>
+                            <div class="gallery-slide">
+                                <img src="assert/sub_image/paper08.png" alt="特征融合网络" class="w-full h-auto object-cover">
+                            </div>
+                            <div class="gallery-slide">
+                                <img src="assert/sub_image/paper09.png" alt="完整训练流程" class="w-full h-auto object-cover">
+                            </div>
+                            <div class="gallery-slide">
+                                <img src="assert/sub_image/paper10.png" alt="实验结果对比" class="w-full h-auto object-cover">
+                            </div>
+                            <div class="gallery-nav">
+                                <div class="gallery-counter">1 / 4</div>
+                                <div class="gallery-dots">
+                                    <div class="nav-dot active" data-slide="0"></div>
+                                    <div class="nav-dot" data-slide="1"></div>
+                                    <div class="nav-dot" data-slide="2"></div>
+                                    <div class="nav-dot" data-slide="3"></div>
+                                </div>
+                            </div>
+                            <!-- 添加左右箭头按钮 -->
+                            <button class="gallery-nav-btn gallery-prev" onclick="changeSlide(this.closest('.image-gallery'), -1)">‹</button>
+                            <button class="gallery-nav-btn gallery-next" onclick="changeSlide(this.closest('.image-gallery'), 1)">›</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3: 实验结果 -->
+            <div class="mb-20">
+                <div class="flex gap-8 items-start">
+                    <div class="w-[30%] slide-in-left">
+                        <h2 class="text-3xl font-bold text-gray-900 mb-6">实验结果</h2>
+                        <div class="space-y-4 text-gray-700 text-lg leading-relaxed">
+                            <p>
+                                在nuScenes数据集上的实验表明，jointdiff产生的数据能够有效增强下游任务的表现，单独比较条件生成的图像质量与分割精度也能接近sota表现。
+                            </p>
+                            <div class="grid grid-cols-2 gap-4 my-6">
+                                <div class="bg-blue-50 p-4 rounded-lg text-center">
+                                    <div class="text-2xl font-bold text-blue-600">21.83</div>
+                                    <div class="text-sm text-blue-800">FID Score</div>
+                                </div>
+                                <div class="bg-green-50 p-4 rounded-lg text-center">
+                                    <div class="text-2xl font-bold text-green-600">40.04%</div>
+                                    <div class="text-sm text-green-800">BEV mIoU</div>
+                                </div>
+                            </div>
+                            <p>
+                                该工作已以第一作者身份投稿至计算机视觉顶会WACV 2026。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="w-[70%] slide-in-right">
+                        <div class="image-gallery">
+                            <div class="gallery-slide active">
+                                <img src="assert/sub_image/paper11.png" alt="生成样本展示" class="w-full h-auto object-cover">
+                            </div>
+                            <div class="gallery-slide">
+                                <img src="assert/sub_image/paper12.png" alt="定量分析图表" class="w-full h-auto object-cover">
+                            </div>
+                            <div class="gallery-slide">
+                                <img src="assert/sub_image/paper13.png" alt="消融实验结果" class="w-full h-auto object-cover">
+                            </div>
+                            <div class="gallery-nav">
+                                <div class="gallery-counter">1 / 4</div>
+                                <div class="gallery-dots">
+                                    <div class="nav-dot active" data-slide="0"></div>
+                                    <div class="nav-dot" data-slide="1"></div>
+                                    <div class="nav-dot" data-slide="2"></div>
+                                    <div class="nav-dot" data-slide="3"></div>
+                                </div>
+                            </div>
+                            <!-- 添加左右箭头按钮 -->
+                            <button class="gallery-nav-btn gallery-prev" onclick="changeSlide(this.closest('.image-gallery'), -1)">‹</button>
+                            <button class="gallery-nav-btn gallery-next" onclick="changeSlide(this.closest('.image-gallery'), 1)">›</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-gray-400">© 2025 胡文健. 保留所有权利.</p>
+                </div>
+                <div class="flex gap-6">
+                    <a href="index.html" class="text-gray-400 hover:text-white transition-colors">返回主页</a>
+                    <a href="ace-detail.html" class="text-gray-400 hover:text-white transition-colors">ACE++详情</a>
+                    <a href="3dgs-detail.html" class="text-gray-400 hover:text-white transition-colors">3D重建详情</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 图片画廊功能
+            const galleries = document.querySelectorAll('.image-gallery');
+            
+            galleries.forEach(gallery => {
+                const slides = gallery.querySelectorAll('.gallery-slide');
+                const dots = gallery.querySelectorAll('.nav-dot');
+                const counter = gallery.querySelector('.gallery-counter');
+                let currentSlide = 0;
+                let touchStartX = 0;
+                let touchEndX = 0;
+                
+                // 更新计数器显示
+                function updateCounter() {
+                    if (counter) {
+                        counter.textContent = `${currentSlide + 1} / ${slides.length}`;
+                    }
+                }
+                
+                // 点击导航点切换图片
+                dots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => {
+                        showSlide(index);
+                    });
+                });
+                
+                // 添加左右箭头按钮
+                const prevBtn = document.createElement('button');
+                prevBtn.innerHTML = '‹';
+                prevBtn.className = 'gallery-nav-btn gallery-prev';
+                prevBtn.addEventListener('click', () => {
+                    showSlide(currentSlide > 0 ? currentSlide - 1 : slides.length - 1);
+                });
+                
+                const nextBtn = document.createElement('button');
+                nextBtn.innerHTML = '›';
+                nextBtn.className = 'gallery-nav-btn gallery-next';
+                nextBtn.addEventListener('click', () => {
+                    showSlide((currentSlide + 1) % slides.length);
+                });
+                
+                // 只在有多张图片时添加导航按钮
+                if (slides.length > 1) {
+                    gallery.appendChild(prevBtn);
+                    gallery.appendChild(nextBtn);
+                }
+                
+                // 触摸滑动支持
+                gallery.addEventListener('touchstart', (e) => {
+                    touchStartX = e.changedTouches[0].screenX;
+                });
+                
+                gallery.addEventListener('touchend', (e) => {
+                    touchEndX = e.changedTouches[0].screenX;
+                    handleSwipe();
+                });
+                
+                function handleSwipe() {
+                    const swipeThreshold = 50;
+                    const diff = touchStartX - touchEndX;
+                    
+                    if (Math.abs(diff) > swipeThreshold) {
+                        if (diff > 0) {
+                            // 向左滑动，显示下一张
+                            showSlide((currentSlide + 1) % slides.length);
+                        } else {
+                            // 向右滑动，显示上一张
+                            showSlide(currentSlide > 0 ? currentSlide - 1 : slides.length - 1);
+                        }
+                    }
+                }
+                
+                // 键盘导航
+                gallery.addEventListener('keydown', (e) => {
+                    if (e.key === 'ArrowLeft') {
+                        showSlide(currentSlide > 0 ? currentSlide - 1 : slides.length - 1);
+                    } else if (e.key === 'ArrowRight') {
+                        showSlide((currentSlide + 1) % slides.length);
+                    }
+                });
+                
+                // 使gallery可以获得焦点以支持键盘导航
+                gallery.setAttribute('tabindex', '0');
+                
+                function showSlide(index) {
+                    // 隐藏所有幻灯片
+                    slides.forEach(slide => slide.classList.remove('active'));
+                    dots.forEach(dot => dot.classList.remove('active'));
+                    
+                    // 显示当前幻灯片
+                    slides[index].classList.add('active');
+                    if (dots[index]) dots[index].classList.add('active');
+                    
+                    currentSlide = index;
+                    updateCounter();
+                }
+                
+                // 初始化计数器
+                updateCounter();
+            });
+            
+            // 改进的滚动动画 - 支持重复触发
+            const observerOptions = {
+                threshold: 0.2,
+                rootMargin: '0px 0px -100px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // 移除之前的动画类
+                        entry.target.classList.remove('slide-in-left', 'slide-in-right', 'fade-in');
+                        
+                        // 强制重排
+                        entry.target.offsetHeight;
+                        
+                        // 重新添加动画类
+                        if (entry.target.classList.contains('slide-in-left')) {
+                            entry.target.style.animation = 'none';
+                            entry.target.offsetHeight; // 触发重排
+                            entry.target.style.animation = 'slideInLeft 0.8s ease-out';
+                        } else if (entry.target.classList.contains('slide-in-right')) {
+                            entry.target.style.animation = 'none';
+                            entry.target.offsetHeight; // 触发重排
+                            entry.target.style.animation = 'slideInRight 0.8s ease-out';
+                        } else {
+                            entry.target.style.animation = 'none';
+                            entry.target.offsetHeight; // 触发重排
+                            entry.target.style.animation = 'fadeIn 1s ease-out';
+                        }
+                    }
+                });
+            }, observerOptions);
+            
+            // 观察所有需要动画的元素
+            document.querySelectorAll('.slide-in-left, .slide-in-right, .fade-in').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
