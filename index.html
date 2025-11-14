@@ -252,6 +252,7 @@
             </div>
         </section>
         
+        
         <!-- Education Section -->
         <section id="education" class="py-16 bg-white">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -315,6 +316,7 @@
                 </div>
                 
                 <div class="flex flex-col gap-12 mx-auto px-4 sm:px-6">
+                    
                     <div class="timeline-item">
                         <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow overflow-hidden border-l-4 border-primary internship-slider" data-slides="3">
                             <div class="relative slider-container">
@@ -420,6 +422,121 @@
                 </div>
                 
                 <div class="flex flex-col gap-12 mx-auto px-4 sm:px-6">
+                    <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100 project-slider" data-slides="5">
+                        <div class="relative slider-container">
+                            <div class="image-slider">
+                                <div class="image-slide flex items-center justify-center bg-gray-100">
+                                    <img src="assert/sub_image/textureai.png" alt="Unity3D编辑器AI贴图生成插件界面" class="w-full max-h-[400px] md:max-h-[480px] h-auto object-contain">
+                                </div>
+                                <div class="image-slide flex items-center justify-center bg-gray-100">
+                                    <img src="assert/sub_image/textureai2.png" alt="编辑器内材质生成与贴图编辑" class="w-full max-h-[400px] md:max-h-[480px] h-auto object-contain">
+                                </div>
+                                <div class="image-slide flex items-center justify-center bg-gray-100">
+                                    <img src="assert/sub_image/textureai5.png" alt="画笔文件描述" class="w-full max-h-[400px] md:max-h-[480px] h-auto object-contain">
+                                </div>
+                
+                                <div class="image-slide flex items-center justify-center bg-gray-100">
+                                    <img src="assert/sub_image/textureai3.png" alt="掩码画笔局部元素生成" class="w-full max-h-[400px] md:max-h-[480px] h-auto object-contain">
+                                </div>
+                                <div class="image-slide flex items-center justify-center bg-gray-100">
+                                    <video src="assert/sub_image/AItexture.mp4" poster="assert/sub_image/textureai4.png" preload="none" controls playsinline class="w-full max-h-[400px] md:max-h-[480px] h-auto object-contain"></video>
+                                </div>
+                            </div>
+
+                            <button class="slider-btn absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 text-white w-12 h-12 rounded-full flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity prev-btn">
+                                <i class="fa fa-chevron-left text-xl"></i>
+                            </button>
+                            <button class="slider-btn absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 text-white w-12 h-12 rounded-full flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity next-btn">
+                                <i class="fa fa-chevron-right text-xl"></i>
+                            </button>
+
+                            <div class="absolute bottom-6 left-0 right-0 flex justify-center gap-3">
+                                <button class="w-4 h-4 rounded-full bg-white opacity-100 dot-btn active" data-index="0"></button>
+                                <button class="w-4 h-4 rounded-full bg-white opacity-50 dot-btn" data-index="1"></button>
+                                <button class="w-4 h-4 rounded-full bg-white opacity-50 dot-btn" data-index="2"></button>
+                                <button class="w-4 h-4 rounded-full bg-white opacity-50 dot-btn" data-index="3"></button>
+                                <button class="w-4 h-4 rounded-full bg-white opacity-50 dot-btn" data-index="4"></button>
+                            </div>
+                        </div>
+
+                        <div class="p-8 max-w-5xl mx-auto">
+                            <div class="flex justify-between items-start mb-4">
+                                <h3 class="text-2xl font-semibold">Unity3D编辑器AI贴图生成插件</h3>
+                            </div>
+                            <div class="flex items-center gap-3 text-neutral mb-6">
+                                <span class="font-medium">个人项目</span>
+                                <span class="text-sm">2025.11 - 至今</span>
+                            </div>
+
+                            <div class="project-content mb-6">
+                                <div class="project-text" data-index="0">
+                                    <ul class="text-gray-700 space-y-3">
+                                        <li class="flex items-start gap-2">
+                                            <i class="fa fa-check text-primary mt-1"></i>
+                                            <span>在编辑器内部对物体材质进行快速生成</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <i class="fa fa-check text-primary mt-1"></i>
+                                            <span>利用画笔进行快速贴图编辑与局部元素修改</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <i class="fa fa-check text-primary mt-1"></i>
+                                            <span>支持文生图与图生图，结合掩码实现局部生成</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="project-text hidden" data-index="1">
+                                    <ul class="text-gray-700 space-y-3">
+                                        <li class="flex items-start gap-2">
+                                            <i class="fa fa-check text-primary mt-1"></i>
+                                            <span>全流程在编辑器内部完成，省去导入导出步骤</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <i class="fa fa-check text-primary mt-1"></i>
+                                            <span>通过提示词工程控制图像生成，更贴合游戏资产</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <i class="fa fa-check text-primary mt-1"></i>
+                                            <span>画笔工具随时编辑掩码以进行局部元素生成</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="project-text hidden" data-index="2">
+                                    <ul class="text-gray-700 space-y-3">
+                                        <li class="flex items-start gap-2">
+                                            <i class="fa fa-check text-primary mt-1"></i>
+                                            <span>本地启动AI模型后端，基于Python服务端完成推理</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <i class="fa fa-check text-primary mt-1"></i>
+                                            <span>前端为Unity自定义界面，适配贴图生成与编辑</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <i class="fa fa-check text-primary mt-1"></i>
+                                            <span>未来：支持前沿生成模型；微调LoRA多风格；专用图生图</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="project-text hidden" data-index="4">
+                                    <ul class="text-gray-700 space-y-3">
+                                        <li class="flex items-start gap-2">
+                                            <i class="fa fa-check text-primary mt-1"></i>
+                                            <span>演示视频：展示掩码画笔局部生成与材质更新流程</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="flex flex-wrap gap-3">
+                                <span class="text-sm bg-gray-100 text-gray-800 px-3 py-1.5 rounded">Unity3D</span>
+                                <span class="text-sm bg-gray-100 text-gray-800 px-3 py-1.5 rounded">AI贴图</span>
+                                <span class="text-sm bg-gray-100 text-gray-800 px-3 py-1.5 rounded">Python后端</span>
+                                <span class="text-sm bg-gray-100 text-gray-800 px-3 py-1.5 rounded">提示词工程</span>
+                                <span class="text-sm bg-gray-100 text-gray-800 px-3 py-1.5 rounded">文生图</span>
+                                <span class="text-sm bg-gray-100 text-gray-800 px-3 py-1.5 rounded">图生图</span>
+                            </div>
+                        </div>
+                    </div>
                     <!-- Project 1 -->
                     <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100 project-slider" data-slides="3">
                         <div class="relative slider-container">
